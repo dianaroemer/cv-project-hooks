@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, {useState, useEffect} from "react";
+import Navbar from './Components/Navbar';
 import FormContainer from './Components/FormContainer';
 
 function App() {
@@ -26,13 +27,13 @@ function App() {
   
   return (
     <div className="AppContainer" style={{backgroundColor: 'bisque'}}>
-      {/* <NavBar/> */}
+      <Navbar/>
       <div className='content'>
         <FormContainer
           personalInformation={personalInformation}
           handlePersonalInformation={handlePersonalInformation}
         />
-        
+
         {/* <PreviewContainer className='previewContainer'
         appState={this.state}/> */}
 

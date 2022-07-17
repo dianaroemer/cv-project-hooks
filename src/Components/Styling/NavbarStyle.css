@@ -1,0 +1,129 @@
+
+
+.navbarContainer {
+    background-color: #EBBCBC;
+    height: 75px;
+    /* border-style: solid;
+    border-radius: 2px; 
+    border-color: orange; 
+    border-width: 10px; */
+}
+
+
+
+nav {
+    /* height: 12%; */
+    height: 100px;
+    min-height: 100px;
+    max-height: 150px;
+    background-color: #EBBCBC;
+    overflow: visible;
+
+    display: flex;
+    /* justify-content: space-between; */
+    width: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 5px 0;
+    margin-bottom: 7px;
+
+    border-radius: 0px 0px 6px 6px;
+    box-shadow: 0px 0px 7px black;
+
+}
+
+.navLeft {
+    padding-left: 15px;
+}
+
+.navTitle {
+    flex: 1;
+    text-align: right;
+    padding-left: 14%;
+    font-size: 22px;
+}
+
+nav ul {
+    flex: 1;
+    text-align: right;
+    padding-right: 30px;
+    flex-shrink: 3;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    margin: 10px 20px;
+}
+
+.navMenuIcon {
+    width: 30px;
+    padding-right: 1%;
+}
+
+/* --------------------- Animate Nav Toggles --------------------- */
+
+.navOptionsToggle {
+    position:relative;
+}
+
+.navOptionsToggle:after {
+    content: '';
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #555358;
+    transition: width 0.3s;
+}
+
+.navOptionsToggle:hover:after {
+    width:70%;
+}
+
+.navAboutToggle {
+    position:relative;
+}
+
+.navAboutToggle:after {
+    content: '';
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #555358;
+    transition: width 0.3s;
+}
+
+.navAboutToggle:hover:after {
+    width:70%;
+}
+
+.navPortfolioToggle {
+    position:relative;
+}
+
+.navPortfolioToggle a {
+    text-decoration: none;
+    color: black;
+}
+
+.navPortfolioToggle:after {
+    content: '';
+    width: 0;
+    height: 3px;
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #555358;
+    transition: width 0.3s;
+}
+
+.navPortfolioToggle:hover:after {
+    width:70%;
+}
