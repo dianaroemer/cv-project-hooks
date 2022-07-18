@@ -50,7 +50,12 @@ import EducationalExperienceForm from './Field Components/EducationalExperienceF
 
 function FormContainer(props) {
 
-    const { personalInformation, handlePersonalInformation } = props;
+    const { personalInformation, 
+        handlePersonalInformation, 
+        handleUpdateExperience, 
+        handleDeleteExperience, 
+        handleCreateExperience,
+        workExperience } = props;
 
     return (
         <div className='FormContainer'>
@@ -60,11 +65,10 @@ function FormContainer(props) {
                 handlePersonalInformation={handlePersonalInformation}
                 personalInformation={personalInformation}/>
                 
-            {/* <WorkExperienceForm workExperienceArr={appState.workExperience.workExperienceArr}
-                elementType={appState.workExperience.type}
-                updateInputField={updateInputField}
-                createExperience={createExperience}
-                deleteExperience={deleteExperience}/> */}
+            <WorkExperienceForm workExperience={workExperience}
+                handleUpdateExperience={handleUpdateExperience}
+                handleDeleteExperience={handleDeleteExperience}
+                handleCreateExperience={handleCreateExperience}/>
             
             {/* <SkillForm skillArr={appState.skillArr}
             createExperience={createExperience}
