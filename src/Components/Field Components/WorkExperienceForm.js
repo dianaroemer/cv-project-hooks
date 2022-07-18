@@ -9,7 +9,6 @@ function WorkExperienceForm(props){
     let rows =[];
 
     workExperience.forEach(element => {
-        // console.log(updateInputField);
         rows.push(
             <WorkExperienceSlot 
                 workExperience={element}
@@ -30,7 +29,6 @@ function WorkExperienceForm(props){
         <p></p>
     </div>
     )
-
 }
 
 function WorkExperienceSlot(props) {
@@ -69,20 +67,4 @@ function WorkExperienceSlot(props) {
 }
 
 
-
-
-
-
-
-
 export default WorkExperienceForm;
-
-/* 
---- Work Experience(VARIABLE, ADD AND DELETE THESE FORM FIELDS) ---
-Position:
-Company:
-City:
-Start Date:
-End Date:? (maybe set this is a duration sort of thing?)
-Short description:
-*/
