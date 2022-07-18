@@ -28,10 +28,21 @@ function App() {
         endDate: '',
         descriptionOfDuties: '',
         key: uniqid(),
-        type: 'workExperience',
       },
     ]
   );
+  const [educationalExperience, setEducationalExperience] = useState(
+    [
+      {
+        institution: '1',
+        degree: '',
+        startDate: '',
+        endDate:'',
+        details: '',
+        key: uniqid(),
+      },
+    ]
+  )
 
   function handleUpdateExperience(e, targetObject, targetField, type) {
     e.preventDefault();
@@ -44,6 +55,9 @@ function App() {
       case 'workExperience': 
         handleWorkExperience(e, targetObject, targetField);
         return;
+      case 'educationalExperience':
+        handleEducationalExperience(e, targetObject, targetField)
+        return;
       default:
         console.log('Reached end of handleUpdateExperience switch statement');
     }
@@ -55,16 +69,34 @@ function App() {
 
   function handleDeleteExperience(e, targetObject, type){
     e.preventDefault();
-    if(type === 'workExperience') {
-      deleteWorkExperience(e, targetObject);
-    }
+
+    switch(type) {
+      case 'workExperience': 
+        deleteWorkExperience(e, targetObject);
+        return;
+      case 'educationalExperience':
+        deleteEducationalExperience(e, targetObject)
+        return;
+      default:
+        console.log('Reached end of handleDeleteExperience switch statement');
+    }    
+
   }
 
   function handleCreateExperience(e, type) {
     e.preventDefault();
-    if(type === 'workExperience'){
-      createWorkExperience();
-    }
+
+    switch(type) {
+      case 'workExperience': 
+        createWorkExperience();
+        return;
+      case 'educationalExperience':
+        createEducationalExperience()
+        return;
+      default:
+        console.log('Reached end of handleCreateExperience switch statement');
+    }   
+
   }
 
   function handlePersonalInformation(e, targetObject, targetField) {
@@ -96,8 +128,35 @@ function App() {
         endDate: '',
         descriptionOfDuties: '',
         key: uniqid(),
-        type: 'workExperience',
       }
+    ])
+  }
+
+  function handleEducationalExperience(e, targetObject, targetField){
+    setEducationalExperience(educationalExperience.map(element => {
+      if(element === targetObject) {
+        return {...targetObject, [targetField]: e.target.value,}
+      } else {
+        return element;
+      }
+    }))
+  }
+
+  function deleteEducationalExperience(e, targetObject) {
+    setEducationalExperience(educationalExperience.filter(element => element !== targetObject));
+  }
+
+  function createEducationalExperience(){
+    setEducationalExperience([
+      ...educationalExperience,
+      {
+        institution: '2',
+        degree: '',
+        startDate: '',
+        endDate:'',
+        details: '',
+        key: uniqid(),
+      },
     ])
   }
   
@@ -114,6 +173,7 @@ function App() {
           handleDeleteExperience={handleDeleteExperience}
           handleCreateExperience={handleCreateExperience}
           workExperience={workExperience}
+          educationalExperience={educationalExperience}
         />
 
         {/* <PreviewContainer className='previewContainer'
