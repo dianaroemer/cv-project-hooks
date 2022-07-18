@@ -33,15 +33,24 @@ function App() {
     ]
   );
 
-  function handlePersonalInformation(e, targetObject, targetField) {
-    setPersonalInformation({...targetObject, [targetField]: e.target.value});
-  };
-
   function handleUpdateExperience(e, targetObject, targetField, type) {
     e.preventDefault();
-    if(type === 'workExperience') {
-      handleWorkExperience(e, targetObject, targetField);
+
+    switch(type) {
+      case 'personalInformation': 
+        console.log('here!');
+        handlePersonalInformation(e, targetObject, targetField);
+        break;
+      case 'workExperience': 
+        handleWorkExperience(e, targetObject, targetField);
+        return;
+      default:
+        console.log('Reached end of handleUpdateExperience switch statement');
     }
+
+    // if(type === 'workExperience') {
+    //   handleWorkExperience(e, targetObject, targetField);
+    // }
   }
 
   function handleDeleteExperience(e, targetObject, type){
@@ -57,6 +66,10 @@ function App() {
       createWorkExperience();
     }
   }
+
+  function handlePersonalInformation(e, targetObject, targetField) {
+    setPersonalInformation({...targetObject, [targetField]: e.target.value});
+  };
 
   function handleWorkExperience(e, targetObject, targetField) {
     setWorkExperience(workExperience.map(element => {
@@ -88,7 +101,7 @@ function App() {
     ])
   }
   
-  
+
 
   
   return (
@@ -97,7 +110,6 @@ function App() {
       <div className='content'>
         <FormContainer
           personalInformation={personalInformation}
-          handlePersonalInformation={handlePersonalInformation}
           handleUpdateExperience={handleUpdateExperience}
           handleDeleteExperience={handleDeleteExperience}
           handleCreateExperience={handleCreateExperience}
