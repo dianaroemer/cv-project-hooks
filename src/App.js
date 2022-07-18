@@ -18,33 +18,6 @@ function App() {
     gitHub: '',
     type: 'personalInformation'
   });
-
-  function handlePersonalInformation(e, targetObject, targetField) {
-    setPersonalInformation({...targetObject, [targetField]: e.target.value});
-  };
-
-  function handleUpdateExperience(e, targetObject, targetField, type) {
-    if(type === 'workExperience') {
-      handleWorkExperience(e, targetObject, targetField);
-    }
-  }
-
-  function handleDeleteExperience(e, targetObject, type){
-    if(type === 'workExperience') {
-      console.log(e);
-      console.log('Delete targetObject:', targetObject)
-      deleteWorkExperience(e, targetObject);
-    }
-  }
-
-  function handleCreateExperience(e, type) {
-    e.preventDefault();
-    if(type === 'workExperience'){
-      console.log('creating new workExperienceObject in state array workExperience[]')
-      createWorkExperience();
-    }
-  }
-
   const [workExperience, setWorkExperience] = useState(
     [
       {
@@ -59,6 +32,31 @@ function App() {
       },
     ]
   );
+
+  function handlePersonalInformation(e, targetObject, targetField) {
+    setPersonalInformation({...targetObject, [targetField]: e.target.value});
+  };
+
+  function handleUpdateExperience(e, targetObject, targetField, type) {
+    e.preventDefault();
+    if(type === 'workExperience') {
+      handleWorkExperience(e, targetObject, targetField);
+    }
+  }
+
+  function handleDeleteExperience(e, targetObject, type){
+    e.preventDefault();
+    if(type === 'workExperience') {
+      deleteWorkExperience(e, targetObject);
+    }
+  }
+
+  function handleCreateExperience(e, type) {
+    e.preventDefault();
+    if(type === 'workExperience'){
+      createWorkExperience();
+    }
+  }
 
   function handleWorkExperience(e, targetObject, targetField) {
     setWorkExperience(workExperience.map(element => {
@@ -89,6 +87,7 @@ function App() {
       }
     ])
   }
+  
   
 
   
