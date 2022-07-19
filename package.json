@@ -2,6 +2,7 @@
   "name": "cv-project-hooks",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dominicroemer.github.io/cv-project-hooks/",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-solid-svg-icons": "^6.1.1",
