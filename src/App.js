@@ -268,7 +268,7 @@ function App() {
     ]);
     setSkills([
       {skill: 'Javascript, HTML, CSS', key: uniqid(), type: 'skill', edit: false},
-      {skill: 'React: State, Props, Lifecycle Methods, Hooks, Routing', key: uniqid(), type: 'skill', edit: false},
+      {skill: 'React: State, Props, Lifecycle Methods, Hooks, Routers', key: uniqid(), type: 'skill', edit: false},
       {skill: 'Git and Github', key: uniqid(), type: 'skill', edit: false},
       {skill: 'Excellent Public Speaker', key: uniqid(), type: 'skill', edit: false},
     ])
