@@ -70,6 +70,7 @@ function App() {
       case 'skills':
         if(targetField === 'edit') {
           toggleSkillEdit(e, targetObject);
+          return;
         }
         handleUpdateSkill(e, targetObject, targetField);
         return;
@@ -205,9 +206,10 @@ function App() {
 
   function toggleSkillEdit(e, targetObject) {
     e.preventDefault();
-   setSkills(skills.map(element => {
+    setSkills(skills.map(element => {
     if(element === targetObject){
-      return {...targetObject, edit: !targetObject.edit}
+      return {...targetObject, 
+        edit: !targetObject.edit}
     } else {
       return element
     }
