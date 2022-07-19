@@ -217,6 +217,119 @@ function App() {
    }))
   }
   
+  function setSampleState(e) {
+    e.preventDefault();
+
+    setPersonalInformation({
+      name : 'Dominic "D" Roemer',
+      title: 'Front-end Developer',
+      photoURL: '',
+      address: '9337 Stargaze Ave, San Diego, CA',
+      phone: 'XXX-XXX-9407',
+      email: 'dominicroemer@gmail.com',
+      linkedIn: 'linkedin.com/in/dominicroemer',
+      gitHub: 'github.com/dominicroemer',
+    });
+    setWorkExperience([
+      { position: 'Front-end Developer',
+        company: 'Self Employed',
+        location: 'San Diego, California',
+        startDate: '2021-05',
+        endDate: 'Present',
+        descriptionOfDuties: 'Entirely self-taught from web resources (TheOdinProject && StackOverflow). Established strong fundamental Javascript knowledge for easy integration into existing work-flows',
+        key: uniqid(),
+      }, {
+        position: 'Executive Producer',
+        company: 'The Esports Channel',
+        location: 'Miami, Florida',
+        startDate: '2019-04',
+        endDate: '2019-08',
+        descriptionOfDuties: 'Acted as on-air talent, writer, editor, graphics, and more for esports startup. Used extensive knowledge of broadcast to level-up existing broadcast from a once weekly broadcast to a daily show',
+        key: uniqid(),
+      }, {
+        position: 'Esports Commentator',
+        company: 'Riot Games',
+        location: 'Los Angeles, USA  &&  Sydney, AUS  &&  Shanghai, CN',
+        startDate: '2015-01',
+        endDate: '2018-12',
+        descriptionOfDuties: 'On-air commentator for LCS, LPL, and Collegiate competitive esports broadcasts. Required in depth knowledge of game, mechanics, players, competitive narrative, and broadcast fundamentals, to be communicated in on-the-fly dictation',
+        key: uniqid(),
+      }
+    ]);
+    setEducationalExperience([
+      {
+        institution: 'University of California at San Diego',
+        degree: 'Computer Science, B.S.',
+        startDate: '2010-09',
+        endDate:'2014-12',
+        details: 'Studied Bioenginering for 1.5 years, Comp Sci for 2 years. Left before graduating to pursue esports commentary with Riot Games in late 2014.',
+        key: uniqid(),
+      }, 
+    ]);
+    setSkills([
+      {skill: 'Javascript, HTML, CSS', key: uniqid(), type: 'skill', edit: false},
+      {skill: 'React: State, Props, Lifecycle Methods, Hooks', key: uniqid(), type: 'skill', edit: false},
+      {skill: 'Git and Github', key: uniqid(), type: 'skill', edit: false},
+      {skill: 'Excellent Public Speaker', key: uniqid(), type: 'skill', edit: false},
+    ])
+
+
+    // this.setState({
+    //   personalInformation: {
+    //     type: 'personalInformation'
+    //   },
+    //   workExperience: {
+    //     type: 'workExperience',
+    //     workExperienceArr: [
+    //       { position: 'Front-end Developer',
+    //         company: 'Self Employed',
+    //         location: 'San Diego, California',
+    //         startDate: '2021-05',
+    //         endDate: 'Present',
+    //         descriptionOfDuties: 'Entirely self-taught from web resources (TheOdinProject && StackOverflow). Established strong fundamental Javascript knowledge for easy integration into existing work-flows',
+    //         key: uniqid(),
+    //         type: 'workExperience'
+    //       }, {
+    //         position: 'Executive Producer',
+    //         company: 'The Esports Channel',
+    //         location: 'Miami, Florida',
+    //         startDate: '2019-04',
+    //         endDate: '2019-08',
+    //         descriptionOfDuties: 'Acted as on-air talent, writer, editor, graphics, and more for esports startup. Used extensive knowledge of broadcast to level-up existing broadcast from a once weekly broadcast to a daily show',
+    //         key: uniqid(),
+    //         type: 'workExperience'
+    //       }, {
+    //         position: 'Esports Commentator',
+    //         company: 'Riot Games',
+    //         location: 'Los Angeles, USA  &&  Sydney, AUS  &&  Shanghai, CN',
+    //         startDate: '2015-01',
+    //         endDate: '2018-12',
+    //         descriptionOfDuties: 'On-air commentator for LCS, LPL, and Collegiate competitive esports broadcasts. Required in depth knowledge of game, mechanics, players, competitive narrative, and broadcast fundamentals, to be communicated in on-the-fly dictation',
+    //         key: uniqid(),
+    //         type: 'workExperience'
+    //       },
+    //     ], 
+        
+    //   }, 
+    //   skillArr: [
+        
+
+    //   ],
+    //   educationalExperience: {
+    //     type: 'educationalExperience',
+    //     educationalExperienceArr: [ {
+    //       type: 'educationalExperience',
+    //       institution: 'University of California at San Diego',
+    //       degree: 'Computer Science, B.S.',
+    //       startDate: '2010-09',
+    //       endDate:'2014-12',
+    //       details: 'Studied Bioenginering for 1.5 years, Comp Sci for 2 years. Left before graduating to pursue esports commentary with Riot Games in late 2014.',
+    //       key: uniqid(),
+    //     }, 
+    //     ]
+    //   }
+    // });
+  }
 
 
   
@@ -228,6 +341,7 @@ function App() {
           handleUpdateExperience={handleUpdateExperience}
           handleDeleteExperience={handleDeleteExperience}
           handleCreateExperience={handleCreateExperience}
+          setSampleState={setSampleState}
           personalInformation={personalInformation}
           workExperience={workExperience}
           educationalExperience={educationalExperience}

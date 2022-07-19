@@ -10,13 +10,14 @@ function FormContainer(props) {
         handleUpdateExperience, 
         handleDeleteExperience, 
         handleCreateExperience,
+        setSampleState,
         workExperience,
         educationalExperience,
         skills } = props;
 
     return (
         <div className='FormContainer'>
-            <button type="submit" onClick={e => e.preventDefault()} className='sampleStateButton'>Generate Sample CV</button>
+            <button type="submit" onClick={e => setSampleState(e)} className='sampleStateButton'>Generate Sample CV</button>
             <PersonalInformationForm 
                 handleUpdateExperience={handleUpdateExperience}
                 personalInformation={personalInformation}/>
@@ -37,15 +38,6 @@ function FormContainer(props) {
                 handleUpdateExperience={handleUpdateExperience}
                 handleDeleteExperience={handleDeleteExperience}
                 handleCreateExperience={handleCreateExperience}/>
-
-
-            {/* <SkillForm skillArr={appState.skillArr}
-            createExperience={createExperience}
-            deleteExperience={deleteExperience}
-            toggleSkillEdit={toggleSkillEdit}
-            updateInputField={updateInputField}/> */}
-            
-            
 
         </div>
     )
