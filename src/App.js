@@ -43,6 +43,15 @@ function App() {
       },
     ]
   )
+  const [skills, setSkills] = useState(
+    [
+      {
+        skill: 'TESTFOOBARSKILL', 
+        key: uniqid(), 
+        edit: true
+      }
+    ]
+  )
 
   function handleUpdateExperience(e, targetObject, targetField, type) {
     e.preventDefault();
@@ -58,13 +67,16 @@ function App() {
       case 'educationalExperience':
         handleEducationalExperience(e, targetObject, targetField)
         return;
+      case 'skills':
+        if(targetField === 'edit') {
+          toggleSkillEdit(e, targetObject);
+        }
+        handleUpdateSkill(e, targetObject, targetField);
+        return;
       default:
         console.log('Reached end of handleUpdateExperience switch statement');
     }
 
-    // if(type === 'workExperience') {
-    //   handleWorkExperience(e, targetObject, targetField);
-    // }
   }
 
   function handleDeleteExperience(e, targetObject, type){
@@ -76,6 +88,9 @@ function App() {
         return;
       case 'educationalExperience':
         deleteEducationalExperience(e, targetObject)
+        return;
+      case 'skills':
+        deleteSkill(e, targetObject);
         return;
       default:
         console.log('Reached end of handleDeleteExperience switch statement');
@@ -92,6 +107,9 @@ function App() {
         return;
       case 'educationalExperience':
         createEducationalExperience()
+        return;
+      case 'skills':
+        createSkill();
         return;
       default:
         console.log('Reached end of handleCreateExperience switch statement');
@@ -159,6 +177,42 @@ function App() {
       },
     ])
   }
+
+  function handleUpdateSkill(e, targetObject, targetField){
+    setSkills(skills.map(element => {
+      if(element === targetObject) {
+        return {...targetObject, [targetField]: e.target.value,}
+      } else {
+        return element;
+      }
+    }));
+  }
+
+  function deleteSkill(e, targetObject){
+    setSkills(skills.filter(element => element !== targetObject));
+  }
+
+  function createSkill(){
+    setSkills([
+      ...skills,
+      {
+        skill: 'I am a new skill!', 
+        key: uniqid(), 
+        edit: true 
+      }
+    ])
+  }
+
+  function toggleSkillEdit(e, targetObject) {
+    e.preventDefault();
+   setSkills(skills.map(element => {
+    if(element === targetObject){
+      return {...targetObject, edit: !targetObject.edit}
+    } else {
+      return element
+    }
+   }))
+  }
   
 
 
@@ -174,6 +228,7 @@ function App() {
           handleCreateExperience={handleCreateExperience}
           workExperience={workExperience}
           educationalExperience={educationalExperience}
+          skills={skills}
         />
 
         {/* <PreviewContainer className='previewContainer'

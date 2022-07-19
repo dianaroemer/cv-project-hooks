@@ -11,7 +11,8 @@ function FormContainer(props) {
         handleDeleteExperience, 
         handleCreateExperience,
         workExperience,
-        educationalExperience } = props;
+        educationalExperience,
+        skills } = props;
 
     return (
         <div className='FormContainer'>
@@ -30,7 +31,14 @@ function FormContainer(props) {
                 handleUpdateExperience={handleUpdateExperience}
                 handleDeleteExperience={handleDeleteExperience}
                 handleCreateExperience={handleCreateExperience}/>
-            
+
+            <SkillForm
+                skills={skills}
+                handleUpdateExperience={handleUpdateExperience}
+                handleDeleteExperience={handleDeleteExperience}
+                handleCreateExperience={handleCreateExperience}/>
+
+
             {/* <SkillForm skillArr={appState.skillArr}
             createExperience={createExperience}
             deleteExperience={deleteExperience}
