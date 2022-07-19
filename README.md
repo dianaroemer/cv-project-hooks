@@ -1,3 +1,11 @@
+Live page available at:
+
+# https://dominicroemer.github.io/cv-project-hooks/
+
+This project is a rebuild of my previous cv-application-project, as set forward by The Odin Project, but with Hooks to manage state and functional components.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
