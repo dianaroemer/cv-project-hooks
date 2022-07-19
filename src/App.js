@@ -4,6 +4,7 @@ import React, {useState, useEffect} from "react";
 import uniqid from "uniqid"
 import Navbar from './Components/Navbar';
 import FormContainer from './Components/FormContainer';
+import PreviewContainer from './Components/PreviewContainer';
 
 function App() {
   
@@ -224,17 +225,20 @@ function App() {
       <Navbar/>
       <div className='content'>
         <FormContainer
-          personalInformation={personalInformation}
           handleUpdateExperience={handleUpdateExperience}
           handleDeleteExperience={handleDeleteExperience}
           handleCreateExperience={handleCreateExperience}
+          personalInformation={personalInformation}
           workExperience={workExperience}
           educationalExperience={educationalExperience}
           skills={skills}
         />
 
-        {/* <PreviewContainer className='previewContainer'
-        appState={this.state}/> */}
+        <PreviewContainer className='previewContainer'
+        personalInformation={personalInformation}
+        workExperience={workExperience}
+        educationalExperience={educationalExperience}
+        skills={skills}/>
 
       </div>
 
